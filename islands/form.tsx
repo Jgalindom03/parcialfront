@@ -24,7 +24,7 @@ import { JSX } from "preact";
     }
 
 return(
-    <div class = "form">
+    <div class = "agendaForm">
         <h1> Add new contact</h1>
         <form action="/"
         method= "POST"

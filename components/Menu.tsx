@@ -4,7 +4,7 @@ type opcionesMenu={
 }
 export const Menu:FunctionComponent<opcionesMenu>=({selected})=>{
     return(
-    <div class = "menu">
+    <div class = "body">
         <h1>My agenda</h1>
         <a href = "/Aclient" class = {selected==="AClient"? "selected": ""}>
             Agenda Client Side

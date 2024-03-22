@@ -10,7 +10,7 @@ const Layout = async(req:Request, ctx:FreshContext)=>{
 
     return(
         <>
-        <Menu type="layout" selected={selected as "Aclient" | "Aserver"}/>
+        <Menu class="layout" selected={selected as "Aclient" | "Aserver"}/>
         <Component/>
         </>
     )
