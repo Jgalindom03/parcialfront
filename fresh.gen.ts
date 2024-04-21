@@ -4,10 +4,10 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
+import * as $agendacsr from "./routes/agendacsr.tsx";
+import * as $agendassr from "./routes/agendassr.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
-import * as $greet_agendacsr from "./routes/greet/agendacsr.tsx";
-import * as $greet_agendassr from "./routes/greet/agendassr.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $layout from "./routes/layout.tsx";
 import * as $AgendaManager from "./islands/AgendaManager.tsx";
@@ -17,10 +17,10 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
+    "./routes/agendacsr.tsx": $agendacsr,
+    "./routes/agendassr.tsx": $agendassr,
     "./routes/api/joke.ts": $api_joke,
     "./routes/greet/[name].tsx": $greet_name_,
-    "./routes/greet/agendacsr.tsx": $greet_agendacsr,
-    "./routes/greet/agendassr.tsx": $greet_agendassr,
     "./routes/index.tsx": $index,
     "./routes/layout.tsx": $layout,
   },
