@@ -1,35 +1,32 @@
 import {useState} from "preact/hooks";
 import { FunctionComponent } from "preact";
 import { JSX } from "preact";
+import {Contact} from '../types.ts';
+import Agenda from "../components/Agenda.tsx"
 
- const Form:FunctionComponent=()=>{
+const AgendaManager:FunctionComponent=()=>{
     const[error, setError]= useState<string>("");
     const[name, setName]= useState<string>("");
     const [email,setEmail]= useState<string>("");
+    const [contacts, setContacts]= useState<Contact[]>([]);
 
-    const submitHandler = async( e:JSX.TargetedEvent<HTMLFormElement, Event>)=>{
-        e.preventDefault();
-        const errorMsg:string[]=[];
-        if(name=== ""){
-            errorMsg.push("Debes añadir un nombre");
+    const validateContact= (contact:Contact, contacts: Contact[]): boolean=>{
+        return contact.name.length>0 && contact.email.length>0 &&
+        !contacts.find((c)=>c.email===contact.email)&& contact.email.includes("@") && contact.email.includes(".");
+    }
+
+    const addContact=(contact:Contact, contacts:Contact[])=>{
+        if(!validateContact(contact, contacts)){
+            setError("Invalid contact.")
+            return
         }
-        if(email!=="." && email!=="@"){
-            errorMsg.push("Un email tiene que tener . y @");
-        }
-        if(errorMsg.length>0)setError(errorMsg.join(" | "));
-        else{
-            setError("");
-            e.currentTarget.submit();
-        }
+        setContacts([...contacts, contact]);
     }
 
 return(
+    <Agenda contacts={contacts}/>
     <div class = "agendaForm">
         <h1> Add new contact</h1>
-        <form action="/"
-        method= "POST"
-        onSubmit={submitHandler}
-        >
             <div>
                 <label for= "name">Name</label>
             </div>
@@ -55,17 +52,13 @@ return(
             />
             </div>    
             <div>
-            <button
-            type ="sumbit"
-            disabled={error!== ""}
-            class ="btn"
+            <button onClick={()=>addContact({name,email}, contacts)}
             >
             Add Contact
             </button>
             </div>
             {error!== "" &&<div class ="span-2 error">{error}</div>}
-        </form>
     </div>
 )
 }
-export default Form;
+export default AgendaManager;

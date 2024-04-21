@@ -6,12 +6,11 @@ import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
-import * as $greet_addcliente from "./routes/greet/addcliente.tsx";
+import * as $greet_agendacsr from "./routes/greet/agendacsr.tsx";
+import * as $greet_agendassr from "./routes/greet/agendassr.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $layout from "./routes/layout.tsx";
-import * as $Counter from "./islands/Counter.tsx";
-import * as $contactlist from "./islands/contactlist.tsx";
-import * as $form from "./islands/form.tsx";
+import * as $AgendaManager from "./islands/AgendaManager.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -20,14 +19,13 @@ const manifest = {
     "./routes/_app.tsx": $_app,
     "./routes/api/joke.ts": $api_joke,
     "./routes/greet/[name].tsx": $greet_name_,
-    "./routes/greet/addcliente.tsx": $greet_addcliente,
+    "./routes/greet/agendacsr.tsx": $greet_agendacsr,
+    "./routes/greet/agendassr.tsx": $greet_agendassr,
     "./routes/index.tsx": $index,
     "./routes/layout.tsx": $layout,
   },
   islands: {
-    "./islands/Counter.tsx": $Counter,
-    "./islands/contactlist.tsx": $contactlist,
-    "./islands/form.tsx": $form,
+    "./islands/AgendaManager.tsx": $AgendaManager,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

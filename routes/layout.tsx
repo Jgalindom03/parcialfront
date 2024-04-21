@@ -1,18 +1,15 @@
-import { FreshContext } from "$fresh/server.ts";
-import {Menu}from "../components/Menu.tsx"
+import { PageProps } from "$fresh/server.ts";
 
-const Layout = async(req:Request, ctx:FreshContext)=>{
-    const Component= ctx.Component;
-    const route= ctx.route;
-    const page= route.split("/").pop()|| "default";
-    let selected= page;
-
-
-    return(
-        <>
-        <Menu class="layout" selected={selected as "Aclient" | "Aserver"}/>
-        <Component/>
-        </>
-    )
+export default function Layout({ Component, state }: PageProps) {
+  // do something with state here
+  return (
+    <div class="layout">
+      <div class="header">
+        <a href="/agendacsr">Agenda Client Side</a>
+        <a href="/agendassr">Agenda Server Side</a>
+      </div>
+      <h1>My Agenda</h1>
+      <Component />
+    </div>
+  );
 }
-export default Layout;
